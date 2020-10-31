@@ -1,0 +1,141 @@
+<!doctype html>
+<head>
+    <title>Form_validation</title> 
+       <link rel="stylesheet" href="cssfolder/style.css">
+
+       <script>
+           function validate()
+        {
+            var str1=document.getElementById("txt1")
+            var regx1=/^([a-zA-Z0-9\.]+)$/;
+            if(regx1.test(str1.value))
+            {
+               
+               // document.getElementById("lbl1").style.color="green"  
+              //  document.getElementById("lbl1").style.visibility="visible"
+                str1.style.border="2px solid green"
+               // document.getElementById("lb11").innerHTML="Correct name"
+                document.getElementById("rd1").style.visibility="visible"
+               // document.getElementById("rd1").style.fill.color="green"
+                
+            }
+            else
+            {
+               // alert("Enter a correct name");
+                str1.style.border="2px solid red"
+                document.getElementById("lbl1").style.visibility="visible";
+                return false;
+            }
+            var str2=document.getElementById("txt2");
+            var regx2=/^([a-zA-z0-9\.-]+)@([a-zA-z0-9]{2,10}).([a-zA-z]{2,4})(.[a-zA-z])?$/
+            if(regx2.test(str2.value))
+            {
+                document.getElementById("lbl2").style.color="green"
+                document.getElementById("lbl2").style.visibility="hidden"
+                str2.style.border="2px solid green"
+                document.getElementById("rd2").style.visibility="hidden"
+            }
+            else
+            {
+                str2.style.border="2px solid red"
+                document.getElementById("lbl2").style.visibility="visible";
+                return false;
+            }
+            var str3=document.getElementById("txt3");
+            var regx3=/^[6-9]\d{9}$/
+            if(regx3.test(str3.value))
+            {
+                document.getElementById("lbl3").style.color="green"
+                document.getElementById("lbl3").style.visibility="hidden"
+                str3.style.border="2px solid green"
+                document.getElementById("rd3").style.visibility="hidden"
+            }
+            else
+            {
+                str3.style.border="2px solid red"
+                document.getElementById("lbl3").style.visibility="visible";
+                return false;
+            }
+            var str4=document.getElementById("txt4");
+            var regx4=/([a-zA-z0-9\.-]+)/;
+            if(regx4.test(str4.value))
+            {
+                if(str4.value.trim().length>5)
+                {
+                document.getElementById("lbl4").style.color="green"
+                document.getElementById("lbl4").style.visibility="hidden"
+                str4.style.border="2px solid green"
+                document.getElementById("rd4").style.visibility="hidden"
+                }
+                else
+                {
+                alert("Weak Password");
+                return false;
+                }
+            }
+            else
+            {
+                str4.style.border="2px solid red"
+                document.getElementById("lbl4").style.visibility="visible";
+                return false;
+            }
+
+
+            return true;
+           /* var str5=document.getElementById("txt");
+            if(str5.value!=str4.value)
+            {
+                str5.value="";
+            }
+            else{
+                //document.getElementById("lbl5").style.color="green"
+                //document.getElementById("lbl5").style.visibility="hidden"
+                str5.style.border="2px solid green"
+               // document.getElementById("rd5").style.visibility="hidden"
+            }*/
+            
+        }
+           </script>
+</head>
+
+<body>
+<form onsubmit="return validate();" action="/status" method="POST">
+    <div id="main" class="mydiv">
+            <div class="mydiv">
+            <label>Username:</label>
+            <input type="text" id="txt1" placeholder="Enter username"/>
+            <input type="radio" id="rd1"/>
+            <label id="lbl1" style="visibility: hidden; color: red;">Error</label>
+            </div>
+
+            <div class="mydiv">
+            <label>email_id:</label>
+            <input type="email" id="txt2" placeholder="Enter email"/>
+            <input type="radio" id="rd2" value="true"/>
+            <label id="lbl2" style="visibility: collapse; ">Error</label>
+
+            </div>
+            <div class="mydiv">
+             <label>Mobile:</label>
+             <input type="text" id="txt3" placeholder="Enter mobile no"/>
+              <input type="radio" id="rd3" value="true"/>
+               <label id="lbl3" style="visibility: hidden;">Error</label></div>
+
+                <div class="mydiv">
+                <label>Password:</label>
+                <input type="password" id="txt4" placeholder="Enter Password"/>
+                <input type="radio" id="rd4" value="true"/>
+                <label id="lbl4" style="visibility: hidden;">Error</label>
+                </div>
+
+            <button type="submit" id="btn1">submit</button>
+
+            <a href="Mess.html">Already have an accnt</a>
+    </div>
+    </form>
+</body>
+
+<script>
+
+</script>
+</html>
